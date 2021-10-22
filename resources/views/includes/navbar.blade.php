@@ -15,7 +15,7 @@
           <div class="d-none d-md-block d-lg-inline-block">Yonathan Sarese</div>
         </a>
         <div class="dropdown-menu dropdown-menu-end">
-          <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+          <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Keluar</a>
         </div>
       </li>
     </ul>
