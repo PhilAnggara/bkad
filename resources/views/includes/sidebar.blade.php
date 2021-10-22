@@ -1,7 +1,7 @@
 <div id="sidebar" class='active'>
   <div class="sidebar-wrapper active">
     <div class="sidebar-header">
-      <img src="{{ url('frontend/assets/images/logo.svg') }}" alt="" srcset="">
+      <a href="{{ route('home') }}" class="brand">BKAD Inventory</a>
     </div>
     <div class="sidebar-menu">
       <ul class="menu">
