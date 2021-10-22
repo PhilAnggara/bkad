@@ -1,7 +1,10 @@
 <div id="sidebar" class='active'>
   <div class="sidebar-wrapper active">
     <div class="sidebar-header">
-      <a href="{{ route('home') }}" class="brand">BKAD Inventory</a>
+      <a href="{{ route('home') }}" class="brand">
+        <h1>BKAD</h1>
+        <h2>Inventory</h2>
+      </a>
     </div>
     <div class="sidebar-menu">
       <ul class="menu">
