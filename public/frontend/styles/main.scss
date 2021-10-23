@@ -46,6 +46,13 @@ $f-brand-2: 'Ubuntu', sans-serif;
   // }
 }
 
+
+#auth {
+  background-image: none;
+  background: #2193b0;
+  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+}
+
 // MOBILE
 @media (max-width: 992px) {
   @import 'mobile';  

@@ -13,4 +13,10 @@
   font-family: "Ubuntu", sans-serif;
   font-size: 30px;
   margin-top: -10px;
+}
+
+#auth {
+  background-image: none;
+  background: #2193b0;
+  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
 }/*# sourceMappingURL=main.css.map */

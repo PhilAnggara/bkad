@@ -17,3 +17,8 @@ Route::get('/', 'MainController@index')
     ->name('home');
 Route::get('/kendaraan', 'MainController@kendaraan')
     ->name('kendaraan');
+
+Route::get('/login', 'MainController@login')
+    ->name('login');
+Route::get('/register', 'MainController@register')
+    ->name('register');
