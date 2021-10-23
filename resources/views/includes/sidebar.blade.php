@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="sidebar-item {{ Request::is('kendaraan') ? 'active' : '' }}">
-          <a href="{{ route('home') }}" class='sidebar-link'>
+          <a href="{{ route('kendaraan') }}" class='sidebar-link'>
             <i class="far fa-car"></i>
             <span>Kendaraan</span>
           </a>

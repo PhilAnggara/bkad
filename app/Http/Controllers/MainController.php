@@ -10,4 +10,9 @@ class MainController extends Controller
     {
         return view('pages.dashboard');
     }
+    
+    public function kendaraan()
+    {
+        return view('pages.kendaraan');
+    }
 }
