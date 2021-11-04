@@ -14,7 +14,6 @@ class KendaraanRequest extends FormRequest
     public function rules()
     {
         return [
-            'kode_barang' => 'required|max:255',
             'merk' => 'required|max:255',
             'jenis' => 'required|max:255',
             'no_polisi' => 'required|max:255',

@@ -16,6 +16,16 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
+            @if($errors->any())
+              <div class="alert alert-danger">
+                <p><strong>Ups ada yang tidak beres</strong></p>
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            @endif
             <div class="table-responsive">
               <table class="table table-hover border text-center text-nowrap" id="dataTable">
                 <thead class="thead-light">

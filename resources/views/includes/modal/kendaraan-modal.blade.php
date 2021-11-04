@@ -11,7 +11,7 @@
         </button>
       </div>
 
-      <form action="" method="post" enctype="multipart/form-data">
+      <form action="{{ route('kendaraan.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">
           <div class="row">
@@ -33,8 +33,8 @@
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label for="no_pol">Nomor Polisi</label>
-                <input type="text" id="no_pol" class="form-control" name="no_pol" placeholder="Nomor Polisi" autocomplete="off" required>
+                <label for="no_polisi">Nomor Polisi</label>
+                <input type="text" id="no_polisi" class="form-control" name="no_polisi" placeholder="Nomor Polisi" autocomplete="off" required>
               </div>
             </div>
             <div class="col-12">
@@ -45,8 +45,8 @@
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label for="p_jawab">Penanggung Jawab</label>
-                <input type="text" id="p_jawab" class="form-control" name="p_jawab" placeholder="Penanggung Jawab" autocomplete="off" required>
+                <label for="penanggung_jawab">Penanggung Jawab</label>
+                <input type="text" id="penanggung_jawab" class="form-control" name="penanggung_jawab" placeholder="Penanggung Jawab" autocomplete="off" required>
               </div>
             </div>
             <div class="col-12">
@@ -61,8 +61,8 @@
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label for="path">Gambar</label>
-                <input type="file" id="path" class="form-control" name="path">
+                <label for="gambar">Gambar</label>
+                <input type="file" id="gambar" class="form-control" name="gambar">
               </div>
             </div>
           </div>

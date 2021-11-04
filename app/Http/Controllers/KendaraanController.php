@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Kendaraan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\KendaraanRequest;
 
 class KendaraanController extends Controller
 {
@@ -16,14 +19,19 @@ class KendaraanController extends Controller
         ]);
     }
 
-    public function create()
+    public function store(KendaraanRequest $request)
     {
-        //
-    }
+        $data = $request->all();
+        if (Kendaraan::all()->isEmpty()) {
+            $tail = 00000;
+        } else {
+            $tail = Str::padLeft(Kendaraan::all()->last()->id + 1, 5, 0);
+        }
+        $data['kode_barang'] = 'KD'. Str::substr($request->jenis, 0, 2). Carbon::parse($request->tanggal_masuk)->isoFormat('YY'). $tail;
+        $data['gambar'] = $request->file('gambar')->store('gambar/kendaraan', 'public');
 
-    public function store(Request $request)
-    {
-        //
+        Kendaraan::create($data);
+        return redirect()->back()->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     public function show($id)
