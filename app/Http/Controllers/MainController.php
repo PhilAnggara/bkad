@@ -11,17 +11,13 @@ class MainController extends Controller
         return view('pages.dashboard');
     }
     
-    public function kendaraan()
+    public function pindai()
     {
-        return view('pages.kendaraan');
+        return view('pages.pindai');
     }
     
-    public function login()
+    public function laporan()
     {
-        return view('auth.login');
-    }
-    public function register()
-    {
-        return view('auth.register');
+        return view('pages.laporan');
     }
 }

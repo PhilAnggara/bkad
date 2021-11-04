@@ -21,5 +21,12 @@ class UserSeeder extends Seeder
             'level' => 'Admin',
             'password' => Hash::make('Admin123')
         ]);
+        
+        User::create([
+            'name' => 'Yonatan Sarese',
+            'email' => 'yonatan@gmail.com',
+            'level' => 'Admin',
+            'password' => Hash::make('Admin123')
+        ]);
     }
 }

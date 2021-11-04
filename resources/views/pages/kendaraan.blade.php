@@ -29,33 +29,35 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($items as $item)
                   <tr>
                     <td scope="row">
-                      <button type="button" class="btn btn-sm icon btn-dark" data-toggle="modal" data-target="#qrModal-">
-                        <i class="fal fa-qrcode" data-toggle="tooltip" title="Lihat QRCODE"></i>
+                      <button type="button" class="btn btn-sm icon btn-dark" data-bs-toggle="modal" data-bs-target="#qrModal-{{ $item->id }}">
+                        <i class="fal fa-qrcode" data-toggle="tooltip" title="Lihat QR Code"></i>
                       </button>
-                      KDR42100001
+                      {{ $item->kode_barang }}
                     </td>
-                    <td>Kijang Innova</td>
-                    <td>R4</td>
-                    <td>10 Sep 2021</td>
+                    <td>{{ $item->merk }}</td>
+                    <td>{{ $item->jenis }}</td>
+                    <td>{{ Carbon\Carbon::parse($item->tanggal_masuk)->isoFormat('D MMM YYYY') }}</td>
                     <td>
-                      <span class="badge bg-success">Berfungsi</span>
+                      <span class="badge bg-{{ $item->status == 'Berfungsi' ? 'success' : 'danger' }}">{{ $item->status }}</span>
                     </td>
                     <td>
                       <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <button type="button" class="btn icon btn-info" data-toggle="modal" data-target="#detailModal-">
+                        <button type="button" class="btn icon btn-info" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $item->id }}">
                           <i class="fal fa-eye" data-toggle="tooltip" title="Lihat Detail"></i>
                         </button>
-                        <button type="button" class="btn icon btn-primary" data-toggle="modal" data-target="#editlModal-">
+                        <button type="button" class="btn icon btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">
                           <i class="fal fa-edit" data-toggle="tooltip" title="Ubah"></i>
                         </button>
-                        <button type="button" class="btn icon btn-danger" data-toggle="modal" data-target="#hapusModal-">
+                        <button type="button" class="btn icon btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal-{{ $item->id }}">
                           <i class="fal fa-trash-alt" data-toggle="tooltip" title="Hapus"></i>
                         </button>
                       </div>
                     </td>
                   </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
@@ -66,5 +68,5 @@
     </div>
   </section>
 </div>
-@include('includes.modal')
+@include('includes.modal.kendaraan-modal')
 @endsection

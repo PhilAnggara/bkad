@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="sidebar-item {{ Request::is('kendaraan') ? 'active' : '' }}">
-          <a href="{{ route('kendaraan') }}" class='sidebar-link'>
+          <a href="{{ route('kendaraan.index') }}" class='sidebar-link'>
             <i class="far fa-car"></i>
             <span>Kendaraan</span>
           </a>
@@ -36,13 +36,13 @@
           </a>
         </li>
         <li class="sidebar-item {{ Request::is('pindai') ? 'active' : '' }}">
-          <a href="{{ route('home') }}" class='sidebar-link'>
+          <a href="{{ route('pindai') }}" class='sidebar-link'>
             <i class="far fa-qrcode"></i>
             <span>Pindai</span>
           </a>
         </li>
         <li class="sidebar-item {{ Request::is('laporan') ? 'active' : '' }}">
-          <a href="{{ route('home') }}" class='sidebar-link'>
+          <a href="{{ route('laporan') }}" class='sidebar-link'>
             <i class="far fa-file-alt"></i>
             <span>Laporan</span>
           </a>

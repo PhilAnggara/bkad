@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'MainController@index')->name('home');
-    Route::get('/kendaraan', 'MainController@kendaraan')->name('kendaraan');
+    Route::resource('kendaraan', 'KendaraanController');
+    Route::get('pindai', 'MainController@pindai')->name('pindai');
+    Route::get('laporan', 'MainController@laporan')->name('laporan');
     
 });
 
