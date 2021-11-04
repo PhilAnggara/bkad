@@ -12,7 +12,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            
+            <video id="preview" width="100%"></video>
           </div>
         </div>
       </div>
@@ -21,3 +21,21 @@
   </section>
 </div>
 @endsection
+
+@push('prepend-script')
+<script type="text/javascript">
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  scanner.addListener('scan', function (content) {
+    console.log(content);
+  });
+  Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+      scanner.start(cameras[0]);
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+</script>
+@endpush
