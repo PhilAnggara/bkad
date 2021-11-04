@@ -10,7 +10,7 @@
         <h3>BKAD Inventory</h3>
         <p>Silahkan masuk untuk melanjutkan ke BKAD Inventory.</p>
       </div>
-      <form action="" method="POST">
+      <form action="{{ route('login') }}" method="POST">
         @csrf
 
         <div class="form-group position-relative has-icon-left">

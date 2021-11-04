@@ -13,12 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MainController@index')
-    ->name('home');
-Route::get('/kendaraan', 'MainController@kendaraan')
-    ->name('kendaraan');
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/login', 'MainController@login')
-    ->name('login');
-Route::get('/register', 'MainController@register')
-    ->name('register');
+    Route::get('/', 'MainController@index')->name('home');
+    Route::get('/kendaraan', 'MainController@kendaraan')->name('kendaraan');
+    
+});
+
+require __DIR__.'/auth.php';
