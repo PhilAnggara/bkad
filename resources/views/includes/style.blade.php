@@ -11,4 +11,5 @@
 <link rel="stylesheet" href="{{ url('frontend/styles/main.css') }}">
 
 {{-- <script type="text/javascript" src="{{ url('frontend/vendors/instascan/instascan.min.js') }}"></script> --}}
-<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+{{-- <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
+<script type="text/javascript" src="{{ url('frontend/vendors/instascan/scan.js') }}"></script>

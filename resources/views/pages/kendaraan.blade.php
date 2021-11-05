@@ -19,11 +19,9 @@
             @if($errors->any())
               <div class="alert alert-danger">
                 <p><strong>Ups ada yang tidak beres</strong></p>
-                <ul>
-                  @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
+                @foreach ($errors->all() as $error)
+                  <div class="alert alert-danger">{{ $error }}</div>
+                @endforeach
               </div>
             @endif
             <div class="table-responsive">
