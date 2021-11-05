@@ -17,45 +17,9 @@
                 <video id="preview" width="100%"></video>
               </div>
               <div class="col-12 col-md-6">
-                <div class="input-group mb-3">
-                  <span class="input-group-text">Kode Barang</span>
-                  <input type="text" id="kodeBarang" class="form-control" placeholder="Pindai ato masukan kode barang" autofocus>
-                </div>
-                <img src="{{ Storage::url('gambar/example/example.jpg') }}" class="img-fluid img-thumbnail my-1">
-                <div class="table-responsive">
-                  <table class="table table-hover table-bordered mb-0">
-                    <tbody>
-                      <tr>
-                        <td>Merk</td>
-                        <th>
-                          Kijang Innova
-                        </th>
-                      </tr>
-                      <tr>
-                        <td>Jenis</td>
-                        <th>R4</th>
-                      </tr>
-                      <tr>
-                        <td>No Polisi</td>
-                        <th>DB 0303 CE</th>
-                      </tr>
-                      <tr>
-                        <td>Tanggal Masuk</td>
-                        <th>3 September 2019</th>
-                      </tr>
-                      <tr>
-                        <td>Penanggung Jawab</td>
-                        <th>Yonatan Sarese</th>
-                      </tr>
-                      <tr>
-                        <td>Status</td>
-                        <th class="text-center">
-                          <span class="badge bg-success">Berfungsi</span>
-                        </th>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+
+                @livewire('scan-result')
+                
               </div>
             </div>
           </div>
@@ -73,6 +37,7 @@
   scanner.addListener('scan', function (content) {
     console.log(content);
     document.getElementById('kodeBarang').value=content;
+    document.getElementById('kodeBarang').dispatchEvent(new Event('input'));
   });
   Instascan.Camera.getCameras().then(function (cameras) {
     if (cameras.length > 0) {
