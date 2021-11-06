@@ -7,6 +7,7 @@ use App\Models\Kendaraan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\KendaraanRequest;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class KendaraanController extends Controller
 {
@@ -22,6 +23,7 @@ class KendaraanController extends Controller
     public function store(KendaraanRequest $request)
     {
         $data = $request->all();
+
         if (Kendaraan::all()->isEmpty()) {
             $tail = 00001;
         } else {
@@ -29,22 +31,15 @@ class KendaraanController extends Controller
         }
         $data['kode_barang'] = 'KD'. Str::substr($request->jenis, 0, 2). Carbon::parse($request->tanggal_masuk)->isoFormat('YY'). $tail;
 
+        QrCode::size(500)->format('png')->generate($data['kode_barang'], storage_path('app/public/gambar/qrcodes/'.$data['kode_barang'].'.png'));
+        $data['qr'] = 'gambar/qrcodes/'.$data['kode_barang'].'.png';
+
         if ($request['gambar']) {
             $data['gambar'] = $request->file('gambar')->store('gambar/kendaraan', 'public');
         }
 
         Kendaraan::create($data);
         return redirect()->back()->with('success', 'Data Berhasil Ditambahkan!');
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request, $id)

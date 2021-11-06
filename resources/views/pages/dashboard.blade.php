@@ -22,7 +22,7 @@
             </div>
             <div class="d-flex flex-column">
               <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>350</h3>
+                <h3 class='card-title'>{{ $total }}</h3>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
             </div>
             <div class="d-flex flex-column">
               <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>5</h3>
+                <h3 class='card-title'>{{ $kendaraan }}</h3>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="d-flex flex-column">
               <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>70</h3>
+                <h3 class='card-title'>{{ $elektronik }}</h3>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
             </div>
             <div class="d-flex flex-column">
               <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>135</h3>
+                <h3 class='card-title'>{{ $furnitur }}</h3>
               </div>
             </div>
           </div>

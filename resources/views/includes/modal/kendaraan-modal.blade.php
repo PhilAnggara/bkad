@@ -83,7 +83,7 @@
 {{-- Modal QR Code --}}
 @foreach ($items as $item)
 <div class="modal fade text-left" id="qrModal-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="qrModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header bg-dark">
         <h5 class="modal-title white" id="qrModal">
@@ -94,7 +94,15 @@
         </button>
       </div>
       <div class="modal-body">
-        Gambar QR Code di sini
+        <div class="d-flex justify-content-center">
+          <img src="{{ Storage::url($item->qr) }}" class="img-fluid img-thumbnail mb-3">
+        </div>
+        <div class="text-center">
+          <a class="btn icon icon-left btn-dark" href="{{ Storage::url($item->qr) }}" download>
+            <i class="fal fa-download"></i>
+            Unduh
+          </a>
+        </div>
       </div>
     </div>
   </div>
