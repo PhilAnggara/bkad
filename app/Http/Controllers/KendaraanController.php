@@ -23,12 +23,15 @@ class KendaraanController extends Controller
     {
         $data = $request->all();
         if (Kendaraan::all()->isEmpty()) {
-            $tail = 00000;
+            $tail = 00001;
         } else {
             $tail = Str::padLeft(Kendaraan::all()->last()->id + 1, 5, 0);
         }
         $data['kode_barang'] = 'KD'. Str::substr($request->jenis, 0, 2). Carbon::parse($request->tanggal_masuk)->isoFormat('YY'). $tail;
-        $data['gambar'] = $request->file('gambar')->store('gambar/kendaraan', 'public');
+
+        if ($request['gambar']) {
+            $data['gambar'] = $request->file('gambar')->store('gambar/kendaraan', 'public');
+        }
 
         Kendaraan::create($data);
         return redirect()->back()->with('success', 'Data Berhasil Ditambahkan!');
@@ -46,7 +49,12 @@ class KendaraanController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        // $data['kode_barang'] = 'KD'. Str::substr($request->jenis, 0, 2). Carbon::parse($request->tanggal_masuk)->isoFormat('YY'). Str::padLeft($id, 5, 0);
+        $item = Kendaraan::find($id);
+        $item->update($data);
+        
+        return redirect()->back()->with('success', 'Data Berhasil Diubah!');
     }
 
     public function destroy($id)

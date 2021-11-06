@@ -18,7 +18,7 @@
 	@else
 		<img src="{{ Storage::url('gambar/example/example.jpg') }}" class="img-fluid img-thumbnail my-1">
 		<div class="table-responsive">
-			<table class="table table-hover table-bordered mb-0">
+			<table class="table table-hover table-bordered text-nowrap mb-0">
 				<tbody>
 					<tr>
 						<td>Merk</td>

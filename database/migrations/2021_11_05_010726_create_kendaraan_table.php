@@ -19,7 +19,7 @@ class CreateKendaraanTable extends Migration
             $table->string('merk');
             $table->string('jenis');
             $table->string('no_polisi');
-            $table->text('gambar');
+            $table->text('gambar')->nullable();
             $table->date('tanggal_masuk');
             $table->string('penanggung_jawab');
             $table->string('status');

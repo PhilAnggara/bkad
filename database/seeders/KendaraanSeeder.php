@@ -16,7 +16,7 @@ class KendaraanSeeder extends Seeder
     public function run()
     {
         Kendaraan::create([
-            'kode_barang' => 'KDR42100001',
+            'kode_barang' => 'KDR41900001',
             'merk' => 'Kijang Innova',
             'jenis' => 'R4',
             'no_polisi' => 'DB 0303 CE',
@@ -26,8 +26,8 @@ class KendaraanSeeder extends Seeder
             'status' => 'Rusak',
         ]);
         Kendaraan::create([
-            'kode_barang' => 'KDR42100002',
-            'merk' => 'Kijang Innova',
+            'kode_barang' => 'KDR41900002',
+            'merk' => 'Kijang Innova Reborn',
             'jenis' => 'R4',
             'no_polisi' => 'DB 2901 CE',
             'gambar' => 'gambar/example/example.jpg',

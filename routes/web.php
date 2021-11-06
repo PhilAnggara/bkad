@@ -17,6 +17,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'MainController@index')->name('home');
     Route::resource('kendaraan', 'KendaraanController');
+    Route::post('ganti-gambar/{id}', 'GambarController@updateImage')->name('update-image');
+    Route::post('hapus-gambar/{id}', 'GambarController@deleteImage')->name('delete-image');
     Route::get('pindai', 'MainController@pindai')->name('pindai');
     Route::get('laporan', 'MainController@laporan')->name('laporan');
     
