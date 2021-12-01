@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Elektronik;
+use App\Models\Furnitur;
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 
@@ -19,12 +21,12 @@ class GambarController extends Controller
         elseif ($data['category'] == 2) 
         {
             $data['gambar'] = $request->file('gambar')->store('gambar/elektronik', 'public');
-            $item = Kendaraan::find($id);
+            $item = Elektronik::find($id);
         }
         else 
         {
             $data['gambar'] = $request->file('gambar')->store('gambar/furnitur', 'public');
-            $item = Kendaraan::find($id);
+            $item = Furnitur::find($id);
         }
 
         $item->gambar = $data['gambar'];
@@ -43,11 +45,11 @@ class GambarController extends Controller
         }
         elseif ($data['category'] == 2) 
         {
-            $item = Kendaraan::find($id);
+            $item = Elektronik::find($id);
         }
         else 
         {
-            $item = Kendaraan::find($id);
+            $item = Furnitur::find($id);
         }
 
         $item->gambar = "";

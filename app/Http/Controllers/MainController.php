@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Elektronik;
+use App\Models\Furnitur;
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 
@@ -10,8 +12,8 @@ class MainController extends Controller
     public function index()
     {
         $kendaraan = Kendaraan::where('status','Berfungsi')->get()->count();
-        $elektronik = Kendaraan::where('status','Berfungsi')->get()->count();
-        $furnitur = Kendaraan::where('status','Berfungsi')->get()->count();
+        $elektronik = Elektronik::where('status','Berfungsi')->get()->count();
+        $furnitur = Furnitur::where('status','Berfungsi')->get()->count();
 
         $total = $kendaraan + $elektronik + $furnitur;
 

@@ -22,7 +22,7 @@ class KendaraanSeeder extends Seeder
             'jenis' => 'R4',
             'no_polisi' => 'DB 0303 CE',
             'gambar' => 'gambar/example/example.jpg',
-            'tanggal_masuk' => Carbon::parse('2019-9-3'),
+            'tanggal_masuk' => Carbon::parse('2019-1-1'),
             'penanggung_jawab' => 'Yonatan Sarese',
             'status' => 'Rusak',
         ]);
@@ -32,8 +32,8 @@ class KendaraanSeeder extends Seeder
             'merk' => 'Kijang Innova Reborn',
             'jenis' => 'R4',
             'no_polisi' => 'DB 2901 CE',
-            'gambar' => 'gambar/example/example.jpg',
-            'tanggal_masuk' => Carbon::parse('2019-11-1'),
+            'gambar' => '',
+            'tanggal_masuk' => Carbon::parse('2019-1-1'),
             'penanggung_jawab' => 'Yonatan Sarese',
             'status' => 'Berfungsi',
         ]);

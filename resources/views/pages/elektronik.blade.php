@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title', 'BKAD Inventory - Data Kendaraan')
+@section('title', 'BKAD Inventory - Data Alat Elektronik')
 
 @section('content')
 <div class="main-content container-fluid">
   <div class="page-title d-flex align-items-center justify-content-between">
-    <h3>Aset Kendaraan</h3>
+    <h3>Alat Elektronik</h3>
     <button class="btn icon icon-left btn-success round" data-bs-toggle="modal" data-bs-target="#tambahDataModal">
       <i class="fal fa-file-plus"></i>
       Tambah Aset
@@ -29,7 +29,7 @@
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Kode Barang</th>
-                    <th scope="col">Merk</th>
+                    <th scope="col">Nama Barang</th>
                     <th scope="col" width="100px">Jenis</th>
                     <th scope="col" width="100px">Tanggal Masuk</th>
                     <th scope="col" width="100px">Status</th>
@@ -45,7 +45,7 @@
                       </button>
                       {{ $item->kode_barang }}
                     </td>
-                    <td>{{ $item->merk }}</td>
+                    <td>{{ $item->nama_barang }}</td>
                     <td>{{ $item->jenis }}</td>
                     <td>{{ Carbon\Carbon::parse($item->tanggal_masuk)->isoFormat('D MMM YYYY') }}</td>
                     <td>
@@ -80,5 +80,5 @@
     </div>
   </section>
 </div>
-@include('includes.modal.kendaraan-modal')
+@include('includes.modal.elektronik-modal')
 @endsection

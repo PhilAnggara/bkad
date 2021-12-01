@@ -4,37 +4,32 @@
     <div class="modal-content">
       <div class="modal-header bg-success">
         <h5 class="modal-title white" id="tambahDataModal">
-          Tambah Aset Kendaraan
+          Tambah Furnitur
         </h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <i data-feather="x"></i>
         </button>
       </div>
 
-      <form action="{{ route('kendaraan.store') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ route('furnitur.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label for="merk">Merk</label>
-                <input type="text" id="merk" class="form-control" name="merk" placeholder="Merk" autocomplete="off" required>
+                <label for="nama_barang">Nama Barang</label>
+                <input type="text" id="nama_barang" class="form-control" name="nama_barang" placeholder="Nama Barang" autocomplete="off" required>
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label for="jenis">Jenis Kendaraan</label>
+                <label for="jenis">Jenis Furnitur</label>
                 <select class="form-select" id="jenis" name="jenis" required>
-                  <option value="" selected disabled>-- Pilih Jenis Kendaraan --</option>
-                  <option>R4</option>
-                  <option>R2</option>
+                  <option value="" selected disabled>-- Pilih Jenis Furnitur --</option>
+                  <option>Lemari</option>
+                  <option>Kursi</option>
+                  <option>Meja</option>
                 </select>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-group">
-                <label for="no_polisi">Nomor Polisi</label>
-                <input type="text" id="no_polisi" class="form-control" name="no_polisi" placeholder="Nomor Polisi" autocomplete="off" required>
               </div>
             </div>
             <div class="col-12">
@@ -53,7 +48,7 @@
               <div class="form-group">
                 <label for="status">Status</label>
                 <select class="form-select" id="status" name="status" required>
-                  <option value="" selected disabled>-- Pilih Status Kendaraan --</option>
+                  <option value="" selected disabled>-- Pilih Status Alat Elektronik --</option>
                   <option>Berfungsi</option>
                   <option>Rusak</option>
                 </select>
@@ -116,7 +111,7 @@
     <div class="modal-content">
       <div class="modal-header bg-info white">
         <h5 class="modal-title white" id="detailModal">
-          Detail Kendaraan
+          Detail Furnitur
         </h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <i data-feather="x"></i>
@@ -141,16 +136,12 @@
                 <th>{{ $item->kode_barang }}</th>
               </tr>
               <tr>
-                <td>Merk</td>
-                <th>{{ $item->merk }}</th>
+                <td>Nama Barang</td>
+                <th>{{ $item->nama_barang }}</th>
               </tr>
               <tr>
                 <td>Jenis</td>
                 <th>{{ $item->jenis }}</th>
-              </tr>
-              <tr>
-                <td>No Polisi</td>
-                <th>{{ $item->no_polisi }}</th>
               </tr>
               <tr>
                 <td>Tanggal Masuk</td>
@@ -182,7 +173,7 @@
     <div class="modal-content">
       <div class="modal-header bg-primary">
         <h5 class="modal-title white" id="editModal">
-          Edit Data Kendaraan
+          Edit Furnitur
         </h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <i data-feather="x"></i>
@@ -203,7 +194,7 @@
         @if ($item->gambar)
           <form action="{{ route('delete-image', $item->id) }}" method="POST">
             @csrf
-            <input type="hidden" name="category" value="1">
+            <input type="hidden" name="category" value="3">
             @csrf
             <div class="d-flex justify-content-center">
               <button class="btn icon icon-left btn-sm btn-outline-danger" type="submit">
@@ -216,7 +207,7 @@
 
         <form action="{{ route('update-image', $item->id) }}" method="post" enctype="multipart/form-data">
           @csrf
-          <input type="hidden" name="category" value="1">
+          <input type="hidden" name="category" value="3">
           <div class="form-group">
             @if ($item->gambar)
               <label for="gambar">Ganti Gambar</label>
@@ -236,31 +227,26 @@
       </div>
       <hr>
 
-      <form action="{{ route('kendaraan.update', $item->id) }}" method="post">
+      <form action="{{ route('furnitur.update', $item->id) }}" method="post">
         @method('PUT')
         @csrf
         <div class="modal-body">
           <div class="row">
             <div class="col-12">
               <div class="form-group">
-                <label for="merk">Merk</label>
-                <input type="text" id="merk" class="form-control" name="merk" value="{{ $item->merk }}" placeholder="Merk" autocomplete="off" required>
+                <label for="nama_barang">Nama Barang</label>
+                <input type="text" id="nama_barang" class="form-control" name="nama_barang" value="{{ $item->nama_barang }}" placeholder="Nama Barang" autocomplete="off" required>
               </div>
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label for="jenis">Jenis Kendaraan</label>
+                <label for="jenis">Jenis Furnitur</label>
                 <select class="form-select" id="jenis" name="jenis" required>
-                  <option selected disabled>-- Pilih Jenis Kendaraan --</option>
-                  <option {{ $item->jenis == 'R4' ? 'selected' : '' }}>R4</option>
-                  <option {{ $item->jenis == 'R2' ? 'selected' : '' }}>R2</option>
+                  <option selected disabled>-- Pilih Jenis Furnitur --</option>
+                  <option {{ $item->jenis == 'Lemari' ? 'selected' : '' }}>Lemari</option>
+                  <option {{ $item->jenis == 'Meja' ? 'selected' : '' }}>Meja</option>
+                  <option {{ $item->jenis == 'Kursi' ? 'selected' : '' }}>Kursi</option>
                 </select>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-group">
-                <label for="no_polisi">Nomor Polisi</label>
-                <input type="text" id="no_polisi" class="form-control" name="no_polisi" value="{{ $item->no_polisi }}" placeholder="Nomor Polisi" autocomplete="off" required>
               </div>
             </div>
             <div class="col-12">
@@ -320,7 +306,7 @@
         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
           Batal
         </button>
-        <form action="{{ route('kendaraan.destroy', $item->id) }}" method="POST">
+        <form action="{{ route('furnitur.destroy', $item->id) }}" method="POST">
           @method('delete')
           @csrf
           <button type="submit" class="btn icon icon-left btn-danger ml-1">

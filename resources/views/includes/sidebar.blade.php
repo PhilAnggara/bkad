@@ -24,13 +24,13 @@
           </a>
         </li>
         <li class="sidebar-item {{ Request::is('elektronik') ? 'active' : '' }}">
-          <a href="{{ route('home') }}" class='sidebar-link'>
+          <a href="{{ route('elektronik.index') }}" class='sidebar-link'>
             <i class="far fa-desktop"></i>
             <span>Alat Elektronik</span>
           </a>
         </li>
         <li class="sidebar-item {{ Request::is('furnitur') ? 'active' : '' }}">
-          <a href="{{ route('home') }}" class='sidebar-link'>
+          <a href="{{ route('furnitur.index') }}" class='sidebar-link'>
             <i class="far fa-couch"></i>
             <span>Furnitur</span>
           </a>

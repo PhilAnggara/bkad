@@ -3,45 +3,45 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Kendaraan;
+use App\Models\Elektronik;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Requests\KendaraanRequest;
+use App\Http\Requests\ElektronikRequest;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
-class KendaraanController extends Controller
+class ElektronikController extends Controller
 {
     public function index()
     {
-        $items = Kendaraan::all()->sortDesc();
+        $items = Elektronik::all()->sortDesc();
 
-        return view('pages.kendaraan', [
+        return view('pages.elektronik', [
             'items' => $items
         ]);
     }
 
-    public function store(KendaraanRequest $request)
+    public function store(ElektronikRequest $request)
     {
         $data = $request->all();
 
-        $data['kode_barang'] = $this->generateKodeBarang(Kendaraan::all(), $data, 'KD');
+        $data['kode_barang'] = $this->generateKodeBarang(Elektronik::all(), $data, 'EL');
 
         QrCode::size(500)->format('png')->generate($data['kode_barang'], storage_path('app/public/gambar/qrcodes/'.$data['kode_barang'].'.png'));
         $data['qr'] = 'gambar/qrcodes/'.$data['kode_barang'].'.png';
 
         if ($request['gambar']) {
-            $data['gambar'] = $request->file('gambar')->store('gambar/kendaraan', 'public');
+            $data['gambar'] = $request->file('gambar')->store('gambar/elektronik', 'public');
         }
 
-        Kendaraan::create($data);
+        Elektronik::create($data);
         return redirect()->back()->with('success', 'Data Berhasil Ditambahkan!');
     }
 
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        // $data['kode_barang'] = 'KD'. Str::substr($request->jenis, 0, 2). Carbon::parse($request->tanggal_masuk)->isoFormat('YY'). Str::padLeft($id, 5, 0);
-        $item = Kendaraan::find($id);
+        // $data['kode_barang'] = 'EL'. Str::substr($request->jenis, 0, 2). Carbon::parse($request->tanggal_masuk)->isoFormat('YY'). Str::padLeft($id, 5, 0);
+        $item = Elektronik::find($id);
         $item->update($data);
         
         return redirect()->back()->with('success', 'Data Berhasil Diubah!');
@@ -49,7 +49,7 @@ class KendaraanController extends Controller
 
     public function destroy($id)
     {
-        $item = Kendaraan::find($id);
+        $item = Elektronik::find($id);
         $item->delete();
 
         return redirect()->back()->with('toast_success', 'Data Dihapus!');
