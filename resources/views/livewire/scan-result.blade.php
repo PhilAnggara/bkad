@@ -16,25 +16,43 @@
 			</div>
 		</div>
 	@else
-		<img src="{{ Storage::url('gambar/example/example.jpg') }}" class="img-fluid img-thumbnail my-1">
+		@if ($item->gambar)
+			<img src="{{ Storage::url($item->gambar) }}" class="img-fluid img-thumbnail mb-2">
+		@else
+			<div class="border mb-2">
+				<div class="text-center mt-3">
+					<i class="fad fa-image fa-7x"></i>
+				</div>
+				<p class="text-center mt-2">Belum Ada Gambar</p>
+			</div>
+		@endif
 		<div class="table-responsive">
 			<table class="table table-hover table-bordered text-nowrap mb-0">
 				<tbody>
-					<tr>
-						<td>Merk</td>
-						<th>{{ $item->merk }}</th>
-					</tr>
+					@if ($category == 1)
+						<tr>
+							<td>Merk</td>
+							<th>{{ $item->merk }}</th>
+						</tr>
+					@else
+						<tr>
+							<td>Nama Barang</td>
+							<th>{{ $item->nama_barang }}</th>
+						</tr>
+					@endif
 					<tr>
 						<td>Jenis</td>
 						<th>{{ $item->jenis }}</th>
 					</tr>
-					<tr>
-						<td>No Polisi</td>
-						<th>{{ $item->no_polisi }}</th>
-					</tr>
+					@if ($category == 1)
+						<tr>
+							<td>No Polisi</td>
+							<th>{{ $item->no_polisi }}</th>
+						</tr>
+					@endif
 					<tr>
 						<td>Tanggal Masuk</td>
-						<th>{{ Carbon\Carbon::parse($item->tanggal_masuk)->isoFormat('D MMM YYYY') }}</th>
+						<th>{{ Carbon\Carbon::parse($item->tanggal_masuk)->isoFormat('D MMMM YYYY') }}</th>
 					</tr>
 					<tr>
 						<td>Penanggung Jawab</td>
