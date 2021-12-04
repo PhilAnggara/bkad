@@ -5,10 +5,12 @@
 <div class="main-content container-fluid">
   <div class="page-title d-flex align-items-center justify-content-between">
     <h3>Aset Furnitur</h3>
-    <button class="btn icon icon-left btn-success round" data-bs-toggle="modal" data-bs-target="#tambahDataModal">
-      <i class="fal fa-file-plus"></i>
-      Tambah Aset
-    </button>
+    @if (auth()->user()->level == 'Admin')
+      <button class="btn icon icon-left btn-success round" data-bs-toggle="modal" data-bs-target="#tambahDataModal">
+        <i class="fal fa-file-plus"></i>
+        Tambah Aset
+      </button>
+    @endif
   </div>
   <section class="section mt-4">
     <div class="row mb-2">
@@ -52,17 +54,24 @@
                       <span class="badge bg-{{ $item->status == 'Berfungsi' ? 'success' : 'danger' }}">{{ $item->status }}</span>
                     </td>
                     <td>
-                      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                        <button type="button" class="btn icon btn-info" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $item->id }}">
-                          <i class="fal fa-eye" data-toggle="tooltip" title="Lihat Detail"></i>
+                      @if (auth()->user()->level == 'Admin')
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                          <button type="button" class="btn icon btn-info" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $item->id }}">
+                            <i class="fal fa-eye" data-toggle="tooltip" title="Lihat Detail"></i>
+                          </button>
+                          <button type="button" class="btn icon btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">
+                            <i class="fal fa-edit" data-toggle="tooltip" title="Ubah"></i>
+                          </button>
+                          <button type="button" class="btn icon btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal-{{ $item->id }}">
+                            <i class="fal fa-trash-alt" data-toggle="tooltip" title="Hapus"></i>
+                          </button>
+                        </div>
+                      @else
+                        <button type="button" class="btn icon icon-left btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#detailModal-{{ $item->id }}">
+                          <i class="fal fa-eye"></i>
+                          Lihat Detail
                         </button>
-                        <button type="button" class="btn icon btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">
-                          <i class="fal fa-edit" data-toggle="tooltip" title="Ubah"></i>
-                        </button>
-                        <button type="button" class="btn icon btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal-{{ $item->id }}">
-                          <i class="fal fa-trash-alt" data-toggle="tooltip" title="Hapus"></i>
-                        </button>
-                      </div>
+                      @endif
                     </td>
                   </tr>
                   @empty
