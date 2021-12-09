@@ -35,12 +35,12 @@
             <span>Furnitur</span>
           </a>
         </li>
-        {{-- <li class="sidebar-item {{ Request::is('laporan') ? 'active' : '' }}">
-          <a href="{{ route('pindai') }}" class='sidebar-link'>
+        <li class="sidebar-item {{ Request::is('laporan') ? 'active' : '' }}">
+          <a href="{{ route('cetak') }}" target="_blank" class='sidebar-link'>
             <i class="far fa-print"></i>
-            <span>Laporan</span>
+            <span>Cetak Laporan</span>
           </a>
-        </li> --}}
+        </li>
         <li class="sidebar-item {{ Request::is('pindai') ? 'active' : '' }}">
           <a href="{{ route('pindai') }}" class='sidebar-link'>
             <i class="far fa-qrcode"></i>

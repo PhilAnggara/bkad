@@ -16,13 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'MainController@index')->name('home');
+
     Route::resource('kendaraan', 'KendaraanController');
     Route::resource('elektronik', 'ElektronikController');
     Route::resource('furnitur', 'FurniturController');
+
     Route::post('ganti-gambar/{id}', 'GambarController@updateImage')->name('update-image');
     Route::post('hapus-gambar/{id}', 'GambarController@deleteImage')->name('delete-image');
     Route::get('pindai', 'MainController@pindai')->name('pindai');
+    
     Route::get('laporan', 'MainController@laporan')->name('laporan');
+    Route::get('laporan/cetak', 'MainController@cetak')->name('cetak');
     
 });
 

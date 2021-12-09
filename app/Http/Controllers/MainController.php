@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Elektronik;
 use App\Models\Furnitur;
 use App\Models\Kendaraan;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class MainController extends Controller
 {
@@ -33,5 +35,23 @@ class MainController extends Controller
     public function laporan()
     {
         return view('pages.laporan');
+    }
+
+    public function cetak()
+    {
+        $judul = 'Laporan Aset Kantor BKAD Kota Bitung.pdf';
+        $kendaraan = Kendaraan::all();
+        $elektronik = Elektronik::all();
+        $furnitur = Furnitur::all();
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pages.cetak', [
+            'kendaraan' => $kendaraan,
+            'elektronik' => $elektronik,
+            'furnitur' => $furnitur,
+        ]);
+
+        // return view('pages.cetak', compact('kendaraan','elektronik','furnitur'));
+        return $pdf->stream($judul);
     }
 }
