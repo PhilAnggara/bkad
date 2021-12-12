@@ -11,7 +11,7 @@
 
       <div class="col-12">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body p-1 p-md-3">
             <div class="row">
               <div class="col-12 col-md-6">
                 <video id="preview" width="100%"></video>

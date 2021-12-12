@@ -17,7 +17,7 @@
 
       <div class="col-12">
         <div class="card">
-          <div class="card-body">
+          <div class="card-body p-1 p-md-3">
             @if($errors->any())
               <div class="alert alert-danger">
                 <p><strong>Ups ada yang tidak beres</strong></p>

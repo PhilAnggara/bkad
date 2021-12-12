@@ -19,4 +19,16 @@
   background-image: none;
   background: #2193b0;
   background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+}
+
+@media (max-width: 992px) {
+  #app #main .main-content .page-title h3 {
+    font-size: 20px;
+  }
+  #app #main .main-content .page-title button {
+    font-size: 12px;
+  }
+  #app #main .main-content table tr {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=main.css.map */
