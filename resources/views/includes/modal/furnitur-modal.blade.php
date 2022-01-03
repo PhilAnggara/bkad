@@ -48,7 +48,7 @@
               <div class="form-group">
                 <label for="status">Status</label>
                 <select class="form-select" id="status" name="status" required>
-                  <option value="" selected disabled>-- Pilih Status Alat Elektronik --</option>
+                  <option value="" selected disabled>-- Pilih Status Furnitur --</option>
                   <option>Berfungsi</option>
                   <option>Rusak</option>
                 </select>
@@ -265,7 +265,7 @@
               <div class="form-group">
                 <label for="status">Status</label>
                 <select class="form-select" id="status" name="status" required>
-                  <option selected disabled>-- Pilih Status Kendaraan --</option>
+                  <option selected disabled>-- Pilih Status Furnitur --</option>
                   <option {{ $item->status == 'Berfungsi' ? 'selected' : '' }}>Berfungsi</option>
                   <option {{ $item->status == 'Rusak' ? 'selected' : '' }}>Rusak</option>
                 </select>

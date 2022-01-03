@@ -28,6 +28,9 @@
                   <option value="" selected disabled>-- Pilih Jenis Alat Elektronik --</option>
                   <option>AC</option>
                   <option>Komputer</option>
+                  <option>Printer</option>
+                  <option>Scanner</option>
+                  <option>LCD</option>
                 </select>
               </div>
             </div>
@@ -244,6 +247,9 @@
                   <option selected disabled>-- Pilih Jenis Alat Elektronik --</option>
                   <option {{ $item->jenis == 'AC' ? 'selected' : '' }}>AC</option>
                   <option {{ $item->jenis == 'Komputer' ? 'selected' : '' }}>Komputer</option>
+                  <option {{ $item->jenis == 'Printer' ? 'selected' : '' }}>Printer</option>
+                  <option {{ $item->jenis == 'Scanner' ? 'selected' : '' }}>Scanner</option>
+                  <option {{ $item->jenis == 'LCD' ? 'selected' : '' }}>LCD</option>
                 </select>
               </div>
             </div>
@@ -263,7 +269,7 @@
               <div class="form-group">
                 <label for="status">Status</label>
                 <select class="form-select" id="status" name="status" required>
-                  <option selected disabled>-- Pilih Status Kendaraan --</option>
+                  <option selected disabled>-- Pilih Status Alat Elektronik --</option>
                   <option {{ $item->status == 'Berfungsi' ? 'selected' : '' }}>Berfungsi</option>
                   <option {{ $item->status == 'Rusak' ? 'selected' : '' }}>Rusak</option>
                 </select>
